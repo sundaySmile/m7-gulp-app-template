@@ -1,3 +1,4 @@
 ### m7-gulp-app-template
 
->gulp + postcss + 
+>gulp + postcss + babel + typescript
+>status:undone
