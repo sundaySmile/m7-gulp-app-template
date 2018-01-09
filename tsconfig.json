@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "es7",
+      "es2015",
+      "es2015.promise",
+      "esnext"
+    ],
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "sourceMap": true,
+    "allowJs": true,
+    // "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true
+  },
+  "strictNullChecks": true,
+  "noImplicitAny": true,
+  "noImplicitThis": true,
+  "alwaysStrict": true,
+  "include": [
+    "src/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    // "useBabel": true,
+    // "babelOptions": {
+    //   "babelrc": false,
+    //   "presets": [
+    //     ["env", { "targets": "last 2 versions, ie 11", "modules": false }]
+    //   ]
+    // }
+  }
+}
