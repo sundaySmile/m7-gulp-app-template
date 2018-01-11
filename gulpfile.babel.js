@@ -12,7 +12,7 @@ import browserSync from "browser-sync";
 const paths = {
     styles: {
         src: "src/styles/*.css",
-        dest: "dist/styles/"
+        dest: "src/dist/styles"
     },
     scripts: {
         src: "src/scripts/*.js",
@@ -101,8 +101,8 @@ gulp.task("watch", watchFiles);
 gulp.task("serve", () => {
     browserSync.init({
         server: {
-            baseDir: "./",
-            index: "src/index.html"
+            baseDir: "src",
+            index: "index.html"
                 // routes: {
                 //     "/dest": "dist/index.html"
                 // }

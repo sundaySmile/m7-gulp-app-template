@@ -1,22 +1,22 @@
 {
-    "presets": [
-        [
-            "env",
-            {
-                "modules": false
-            }
-        ],
-        "es2015",
-        "stage-2"
-    ],
-    "plugins": ["transform-runtime"],
-    "env": {
-        "test": {
-            "presets": ["env", "stage-2"],
-            "plugins": ["istanbul"]
-        },
-        "production": {
-            "presets": ["minify"]
-        }
+  "presets": [
+    // [
+    //   "env",
+    //   {
+    //     "modules": false
+    //   }
+    // ],
+    "es2015",
+    "stage-2"
+  ],
+  "plugins": ["transform-runtime"],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["istanbul"]
+    },
+    "production": {
+      "presets": ["minify"]
     }
+  }
 }

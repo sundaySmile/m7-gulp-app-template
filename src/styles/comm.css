@@ -1,31 +1,31 @@
 :root {
-    --headColor: #456;
+  --headColor: #456;
 }
 
 html {
-    font-size: calc((100vw / 1080) * 100);
+  font-size: calc((100vw / 1080) * 100);
 }
 
 body {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 a {
-    -webkit-tap-highlight-color: transparent;
-    text-decoration: none;
-    &:hover {
-        color: #fff;
-    }
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  &:hover {
+    color: #fff;
+  }
 }
 
 .name {
-    font-size: .36rem;
-    color: var(--headColor);
-    & a {
-        display: inline-block;
-        padding: .25rem .5rem;
-        color: #333;
-        font-size: .32rem;
-    }
+  font-size: .36rem;
+  color: var(--headColor);
+  & a {
+    display: inline-block;
+    padding: .25rem .5rem;
+    color: #333;
+    font-size: .32rem;
+  }
 }
