@@ -1,5 +1,5 @@
 {
-  "name": "gulp-template",
+  "name": "gulp-app-template",
   "version": "1.0.0",
   "description": "A Try of gulp",
   "main": "index.js",
