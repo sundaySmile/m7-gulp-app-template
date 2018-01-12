@@ -1,7 +1,7 @@
 {
   "files": [
-    "src/main.ts"
-    // "src/greet.ts"
+    "src/scripts/greet.ts",
+    "src/scripts/main.ts"
   ],
   "compilerOptions": {
     "lib": [
@@ -33,14 +33,5 @@
   ],
   "exclude": [
     "node_modules"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-    // "useBabel": true,
-    // "babelOptions": {
-    //   "babelrc": false,
-    //   "presets": [
-    //     ["env", { "targets": "last 2 versions, ie 11", "modules": false }]
-    //   ]
-    // }
-  }
+  ]
 }

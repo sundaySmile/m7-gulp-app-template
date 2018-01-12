@@ -1,6 +1,7 @@
 import gulp from "gulp";
 import postcss from "gulp-postcss";
 import babel from "gulp-babel";
+import ts from "gulp-typescript";
 import concat from "gulp-concat";
 import uglify from "gulp-uglify";
 import rename from "gulp-rename";
@@ -16,7 +17,7 @@ const paths = {
     },
     scripts: {
         src: "src/scripts/*.js",
-        dest: "dist/scripts/"
+        dest: "src/dist/scripts"
     },
     images: {
         src: "src/assets/*.{jpg,jpeg,png}",
@@ -24,7 +25,7 @@ const paths = {
     },
     html: {
         src: "src/*.html",
-        dest: "dist/"
+        dest: "src/dist"
     }
 };
 
@@ -61,14 +62,20 @@ export function styles() {
         .pipe(browserSync.stream())
     );
 }
+// , { noImplicitAny: true }
+const tsProject = ts.createProject('tsconfig.json');
 
 export function scripts() {
-    return gulp
-        .src(paths.scripts.src, { sourcemaps: true })
+    return
+			gulp.src(paths.scripts.src)
+			// 	.pipe(tsProject())
+			// tsProject.src()
+			// .pipe(tsProject())
+			// .js	
         .pipe(babel())
         .pipe(uglify())
-        .pipe(concat("main.min.js"))
-        .pipe(gulp.dest(paths.scripts.dest));
+        // .pipe(concat("main.min.js"))
+        .pipe(gulp.dest('dist'));
 }
 
 export function images() {
@@ -98,7 +105,7 @@ export { watchFiles as watch };
 
 gulp.task("clean", clean);
 gulp.task("watch", watchFiles);
-gulp.task("serve", () => {
+gulp.task("servers", () => {
     browserSync.init({
         server: {
             baseDir: "src",
