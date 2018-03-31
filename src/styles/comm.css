@@ -16,7 +16,6 @@ html, body, div, p {
   padding: 0;
 }
 
-
 a {
   -webkit-tap-highlight-color: transparent;
   text-decoration: none;
@@ -26,7 +25,7 @@ a {
 }
 
 .name {
-  font-size: .36rem;
+  font-size: .46rem;
   color: var(--headColor);
   & a {
     display: inline-block;

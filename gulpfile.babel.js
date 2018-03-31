@@ -16,7 +16,7 @@ const paths = {
         dest: "src/dist/styles"
     },
     scripts: {
-        src: "src/scripts/*.js",
+        src: "src/scripts/main.js",
         dest: "src/dist/scripts"
     },
     images: {
@@ -32,7 +32,7 @@ const paths = {
 /*
  * For small tasks you can export arrow functions
  */
-export const clean = () => del(["assets"]);
+export const clean = () => del(["src/dist"]);
 
 /*
  * You can also declare named functions and export them as tasks
@@ -42,9 +42,6 @@ export function styles() {
         require("postcss-cssnext"),
         // require("precss"),
         require("postcss-nesting")
-        // require("postcss-assets")({
-        //     loadPaths: [paths.images.src]
-        // })
     ];
     return (
         gulp
@@ -54,7 +51,7 @@ export function styles() {
         // pass in options to the stream
         .pipe(
             rename({
-                basename: "main",
+                basename: "index",
                 suffix: ".min"
             })
         )
@@ -66,16 +63,19 @@ export function styles() {
 const tsProject = ts.createProject('tsconfig.json');
 
 export function scripts() {
-    return
-			gulp.src(paths.scripts.src)
+    return (
+			gulp
+				.src(paths.scripts.src)
 			// 	.pipe(tsProject())
 			// tsProject.src()
 			// .pipe(tsProject())
 			// .js	
         .pipe(babel())
         .pipe(uglify())
-        // .pipe(concat("main.min.js"))
-        .pipe(gulp.dest('dist'));
+        .pipe(concat("main.min.js"))
+				.pipe(gulp.dest(paths.scripts.dest))
+				.pipe(browserSync.stream())
+		);
 }
 
 export function images() {
@@ -85,7 +85,7 @@ export function images() {
         .pipe(gulp.dest(paths.images.dest));
 }
 
-function html() {
+export function html() {
     return gulp
         .src(paths.html.src)
         .pipe(template({ title: "Hello!" }))
@@ -98,6 +98,7 @@ function html() {
 function watchFiles() {
     gulp.watch(paths.scripts.src, scripts).on("change", browserSync.reload);
     gulp.watch(paths.styles.src, styles).on("change", browserSync.reload);
+    gulp.watch(paths.styles.html, html).on("change", browserSync.reload);
     gulp.watch(paths.images.src, images);
     // gulp.watch(paths.html.src, html).on("change", browserSync.reload);
 }
@@ -126,6 +127,12 @@ gulp.task("servers", () => {
         browser: []
     });
     watchFiles();
+});
+
+gulp.task("build", () => {
+	styles();
+	scripts();
+	html();
 });
 /*
  * Export a default task

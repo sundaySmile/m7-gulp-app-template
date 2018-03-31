@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A Try of gulp",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "babel-register": "^6.26.0"
+  },
   "devDependencies": {
     "@babel/register": "^7.0.0-beta.37",
     "babel-core": "^6.26.0",
@@ -44,7 +46,8 @@
     "watchify": "^3.9.0"
   },
   "scripts": {
-    "dev": "gulp server",
+    "dev": "gulp servers",
+    "build": "gulp build",
     "start": "browser-sync start --config bs-config.js",
     "test": "test"
   },

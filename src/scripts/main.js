@@ -1,8 +1,9 @@
 import { sayHello } from './greet';
 
-function showHello(divName: string, name: string) {
+function showHello(divName, name) {
   const elt = document.getElementById(divName);
-  elt.innerText = sayHello(name);
+	elt.innerText = sayHello(name);
+	// elt.innerHTML = `say ${name}`;
 }
 
-showHello('greeting', 'TypeScript!');
+showHello('greeting', 'Hello TypeScript!');
